@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent of Code Leaderboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Advent of Code Leaderboard</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Stars</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let member of Object.values(leaderboard.members).sort((a, b) => b.local_score - a.local_score)) { %>
+                    <tr>
+                        <td><%= member.global_score %></td>
+                        <td><%= member.name || "Anonymous" %></td>
+                        <td><%= member.stars %></td>
+                        <td><%= member.local_score %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
